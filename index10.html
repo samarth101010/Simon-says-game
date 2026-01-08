@@ -3,25 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMON SAYS GAME</title>
-    <link rel="stylesheet" href="style2.css" />
+    <title>Simon Says Game - Enhanced</title>
+    <link rel="stylesheet" href="/style2.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Simon Says Game</h1>
-    <h2>Press any key to start the game</h2>
+    <div class="container">
+        <header>
+            <h1>🎮 Simon Says</h1>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Level</span>
+                    <span class="stat-value" id="level-display">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">High Score</span>
+                    <span class="stat-value" id="high-score">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Streak</span>
+                    <span class="stat-value" id="streak">0</span>
+                </div>
+            </div>
+        </header>
 
-    <div class="btn-container">
-        <div class="line-one">
-       <div class="btn red" type="button" id="red">1</div> 
-       <div class="btn yellow" type="button" id="yellow">2</div>
-    </div>
-    <div class="line-two">
-       <div class="btn green" type="button" id="green">3</div>
-       <div class="btn purple" type="button" id="purple">4</div> 
-    </div>
+        <div class="game-info">
+            <h2 id="message">Choose difficulty and click Start!</h2>
+        </div>
+
+        <div class="controls">
+            <div class="difficulty-selector">
+                <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+            </div>
+            <button id="start-btn" class="start-btn">Start Game</button>
+            <button id="sound-toggle" class="sound-btn">🔊 Sound ON</button>
+        </div>
+
+        <div class="btn-container">
+            <div class="line-one">
+                <div class="btn red" data-color="red" data-note="329.63"></div> 
+                <div class="btn yellow" data-color="yellow" data-note="261.63"></div>
+            </div>
+            <div class="line-two">
+                <div class="btn green" data-color="green" data-note="220.00"></div>
+                <div class="btn purple" data-color="purple" data-note="164.81"></div> 
+            </div>
+        </div>
+
+        <div class="leaderboard-section">
+            <h3>🏆 Top 10 Scores</h3>
+            <div id="leaderboard" class="leaderboard">
+                <div class="loading">Loading leaderboard...</div>
+            </div>
+        </div>
     </div>
 
-    <script src="app2.js"></script>
-    
+    <!-- Game Over Modal -->
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2>🎯 Game Over!</h2>
+            <p class="final-score">Your Score: <span id="final-score">0</span></p>
+            <div class="nickname-input">
+                <input type="text" id="nickname" placeholder="Enter your name" maxlength="20">
+                <button id="submit-score" class="submit-btn">Submit Score</button>
+            </div>
+            <button id="play-again" class="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="/app2.js"></script>
 </body>
 </html>
